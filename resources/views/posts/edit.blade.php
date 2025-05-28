@@ -2,17 +2,14 @@
 
 @section('content')
     <h1>Edit Post</h1>
-    <form action="{{ route('posts.update', $post->id) }}" method="POST">
-        @csrf
-        @method('PUT')
-        <div class="form-group">
-            <label for="title">Title:</label>
-            <input type="text" name="title" id="title" class="form-control" value="{{ $post->title }}">
-        </div>
-        <div class="form-group">
-            <label for="content">Content:</label>
-            <textarea name="content" id="content" class="form-control">{{ $post->content }}</textarea>
-        </div>
-        <button type="submit" class="btn btn-success">Save</button>
-    </form>
-@endsection
+    <form action="{{ route('posts.store') }}" method="POST" enctype="multipart/form-data">
+    @csrf
+
+    <input type="text" name="title" placeholder="Post Title"><br>
+    <textarea name="content" placeholder="Post Content"></textarea><br>
+
+    <input type="file" name="image"><br>
+
+    <button type="submit">Submit</button>
+</form>
+

@@ -35,8 +35,8 @@
         .menu-overlay {
             position: fixed;
             top: 0;
-            left: 0;
-            width: 100%;
+            right: 250px;
+            width: calc(100% - 250px);
             height: 100%;
             background: rgba(0,0,0,0.3);
             opacity: 0;
@@ -94,15 +94,19 @@
     
 
     
-        <h1>The Endless Edits</h1>
-        <a href="{{ route('posts.create') }}" class="create-button">Create</a>
-        <div class="menu-icon" id="menuIcon" tabindex="0" role="button" aria-label="Toggle menu">&#9776;</div>
+        @if (!in_array(Route::currentRouteName(), ['posts.create', 'posts.edit', 'posts.my']))
+            <h1>The Endless Edits</h1>
+            <a href="{{ route('posts.create') }}" class="create-button">Create</a>
+            <div class="menu-icon" id="menuIcon" tabindex="0" role="button" aria-label="Toggle menu">&#9776;</div>
+        @elseif(Route::currentRouteName() === 'posts.my')
+            <div class="menu-icon" id="menuIcon" tabindex="0" role="button" aria-label="Toggle menu">&#9776;</div>
+        @endif
         
     
 
     
 
-    <nav class="side-menu" id="sideMenu" aria-label="Side menu">
+    <nav class="side-menu" id="sideMenu" aria-label="Side menu" @if(in_array(Route::currentRouteName(), ['posts.create', 'posts.edit'])) style="display:none;" @endif>
         @guest
             <a href="{{ route('login') }}">Sign In</a>
             <a href="{{ route('register') }}">Sign Up</a>
@@ -110,8 +114,8 @@
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">  Instagram</a>
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"> Facebook</a>
         @else
-            <a href="{{ url('/') }}">Home</a>
-            <a href="{{ route('posts.index') }}">My Posts</a>
+            <a href="{{ route('posts.index') }}">Home</a>
+            <a href="{{ route('posts.my') }}">My Posts</a>
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"> Twitter</a>
             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"> Facebook</a>

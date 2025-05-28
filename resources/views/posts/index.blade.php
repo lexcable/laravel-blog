@@ -3,14 +3,14 @@
 @section('content')
     <ul>
         @foreach ($posts as $post)
-            <li>
-                <a href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a>
-                <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-secondary">Edit</a>
-                <form action="{{ route('posts.destroy', $post->id) }}" method="POST" style="display:inline;">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
+            <li class="mb-6 border-b pb-4">
+                @if($post->image)
+    <img src="{{ asset('storage/' . $post->image) }}" alt="Post Image" width="200">
+@endif
+
+                <a href="{{ route('posts.show', $post->id) }}" class="text-xl font-bold text-blue-600 hover:underline">{{ $post->title }}</a>
+                <p class="mt-1">{{ $post->content }}</p>
+                </div>
             </li>
         @endforeach
     </ul>
