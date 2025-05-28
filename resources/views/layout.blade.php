@@ -93,13 +93,12 @@
 <body>
     
 
-    <header>
+    
         <h1>The Endless Edits</h1>
-        <div style="display: flex; align-items: center; margin-left: auto; gap: 1rem;">
-            <a href="{{ route('posts.create') }}" class="create-button">Create</a>
-            <div class="menu-icon" id="menuIcon" tabindex="0" role="button" aria-label="Toggle menu">&#9776;</div>
-        </div>
-    </header>
+        <a href="{{ route('posts.create') }}" class="create-button">Create</a>
+        <div class="menu-icon" id="menuIcon" tabindex="0" role="button" aria-label="Toggle menu">&#9776;</div>
+        
+    
 
     
 
@@ -107,15 +106,15 @@
         @guest
             <a href="{{ route('login') }}">Sign In</a>
             <a href="{{ route('register') }}">Sign Up</a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Follow us on Twitter</a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Follow us on Instagram</a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Follow us on Facebook</a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"> Twitter</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">  Instagram</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"> Facebook</a>
         @else
             <a href="{{ url('/') }}">Home</a>
             <a href="{{ route('posts.index') }}">My Posts</a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Follow us on Twitter</a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Follow us on Instagram</a>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Follow us on Facebook</a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"> Twitter</a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"> Facebook</a>
             <a href="{{ route('logout') }}"
                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 Logout
