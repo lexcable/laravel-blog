@@ -32,7 +32,7 @@ class LoginController extends Controller
             $request->session()->regenerate();
 
             // Redirect to intended page or default home
-            return redirect()->intended('/');
+            return redirect()->intended(route('posts.index'));
         }
 
         // If login fails, back to login with error message

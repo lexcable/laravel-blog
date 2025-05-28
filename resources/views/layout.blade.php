@@ -10,17 +10,17 @@
         .side-menu {
             position: fixed;
             top: 0;
-            left: -250px;
+            right: -250px;
             width: 250px;
             height: 100%;
             background-color: #fdfdfc;
-            box-shadow: 2px 0 5px rgba(0,0,0,0.3);
-            transition: left 0.3s ease;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+            transition: right 0.3s ease;
             z-index: 1000;
             padding: 1rem;
         }
         .side-menu.open {
-            left: 0;
+            right: 0;
         }
         .side-menu a {
             display: block;
@@ -91,11 +91,17 @@
     </style>
 </head>
 <body>
+    
+
     <header>
-        <div class="menu-icon" id="menuIcon" tabindex="0" role="button" aria-label="Toggle menu">&#9776;</div>
         <h1>The Endless Edits</h1>
-        <a href="{{ route('posts.create') }}" class="create-button">Create</a>
+        <div style="display: flex; align-items: center; margin-left: auto; gap: 1rem;">
+            <a href="{{ route('posts.create') }}" class="create-button">Create</a>
+            <div class="menu-icon" id="menuIcon" tabindex="0" role="button" aria-label="Toggle menu">&#9776;</div>
+        </div>
     </header>
+
+    
 
     <nav class="side-menu" id="sideMenu" aria-label="Side menu">
         @guest

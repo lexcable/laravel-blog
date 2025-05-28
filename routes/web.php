@@ -22,6 +22,4 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
 
-Route::fallback(function () {
-    return response()->view('errors.404', [], 404);
-});
+
