@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Endless Edits</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
+    <script src="//unpkg.com/alpinejs" defer></script>
     <style>
         /* Basic styles for side menu and overlay */
         .side-menu {
@@ -91,9 +92,9 @@
     </style>
 </head>
 <body>
-    
 
-    
+
+
         @if (!in_array(Route::currentRouteName(), ['posts.create', 'posts.edit', 'posts.my']))
             <h1>The Endless Edits</h1>
             <a href="{{ route('posts.create') }}" class="create-button">Create</a>
@@ -101,10 +102,10 @@
         @elseif(Route::currentRouteName() === 'posts.my')
             <div class="menu-icon" id="menuIcon" tabindex="0" role="button" aria-label="Toggle menu">&#9776;</div>
         @endif
-        
-    
 
-    
+
+
+
 
     <nav class="side-menu" id="sideMenu" aria-label="Side menu" @if(in_array(Route::currentRouteName(), ['posts.create', 'posts.edit'])) style="display:none;" @endif>
         @guest

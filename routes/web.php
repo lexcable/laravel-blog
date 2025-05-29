@@ -1,7 +1,8 @@
 <?php
 
-use App\Models\Post;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\LikeController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\RegisteredUserController;
@@ -30,3 +31,8 @@ Route::get('/posts/{post}/edit', [PostController::class, 'edit'])->name('posts.e
 Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy');
 
 Route::get('/my-posts', [PostController::class, 'myPosts'])->name('posts.my');
+
+Route::middleware('auth')->group(function () {
+    Route::post('/posts/{post}/like', [LikeController::class, 'toggle'])->name('posts.like');
+    Route::post('/posts/{post}/comment', [CommentController::class, 'store'])->name('posts.comment');
+});
